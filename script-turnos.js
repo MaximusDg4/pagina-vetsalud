@@ -5,6 +5,7 @@ document.getElementById('formulario-turnos').addEventListener('submit', function
     // 2. Capturamos los elementos de la pantalla
     const mascota = document.getElementById('nombre-mascota').value;
     const contacto = document.getElementById('contacto-usuario').value;
+     const contacto = document.getElementBiId('tipo-o-raza').value;
     const mensajeAlerta = document.getElementById('mensaje-alerta');
     const botonEnviar = document.getElementById('btn-enviar-solicitud');
 
