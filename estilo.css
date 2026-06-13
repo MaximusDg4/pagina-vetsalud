@@ -48,22 +48,37 @@ header img {
     border: 5px solid var(--acento);
 }
 
-/* 2. MENÚ: Estilo Barra Flotante */
+/* ==========================================================================
+   2. MENÚ: Estilo Barra Flotante (CORREGIDO PARA CELULARES)
+   ========================================================================== */
 nav ul {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;        /* ¡LA CLAVE! Si no entran los botones, bajan prolijamente */
+    justify-content: center; /* Los centra a todos en la pantalla del celu */
+    gap: 8px;               /* Separación perfecta para que no se encimen */
     list-style: none;
-    margin-top: 15px;
+    margin-top: 20px;
+    padding: 0 10px;
+    width: 100%;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    font-size: 0.7rem;
+    font-size: 0.75rem;     /* Un pelín más grande para que sea legible */
     font-weight: bold;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 8px 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 8px 14px;      /* Más espacio para que sea fácil de tocar con el dedo */
     border-radius: 30px;
+    white-space: nowrap;    /* EVITA que textos como "SOLICITAR TURNOS" se partan en dos renglones */
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover lindo para cuando naveguen */
+nav a:hover {
+    background-color: white;
+    color: var(--primario);
 }
 
 /* 3. SECCIONES: Alternamos colores de fondo para romper la rutina */
