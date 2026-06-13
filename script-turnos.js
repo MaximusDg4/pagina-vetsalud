@@ -25,9 +25,9 @@ document.getElementById('formulario-turnos').addEventListener('submit', function
     botonEnviar.disabled = true;
 
     const datos = {
-        "Nombre Mascota": mascota,
-        "Tipo o Raza": raza, 
-        "Contacto": contacto
+        Nombre Mascota: mascota,
+        Tipo o Raza: raza, 
+        Contacto: contacto
     };
 
     fetch('https://formspree.io/f/mgobnodd', {
