@@ -62,19 +62,11 @@ document.getElementById('formulario-turnos').addEventListener('submit', function
 const btnModoOscuro = document.getElementById('btn-modo-oscuro');
 
 btnModoOscuro.addEventListener('click', () => {
-    // Le ponemos o sacamos la clase dark-mode al body
     document.body.classList.toggle('dark-mode');
     
-    // Cambiamos el texto y el emoji del botón según el modo
     if (document.body.classList.contains('dark-mode')) {
         btnModoOscuro.innerText = "☀️ Modo Claro";
-        // Ajustamos el color del botón para que se vea bien sobre el fondo oscuro
-        btnModoOscuro.style.color = "#ffffff";
-        btnModoOscuro.style.borderColor = "#ffffff";
     } else {
         btnModoOscuro.innerText = "🌙 Modo Oscuro";
-        btnModoOscuro.style.color = "var(--primario)";
-        btnModoOscuro.style.borderColor = "var(--primario)";
     }
-});
 
