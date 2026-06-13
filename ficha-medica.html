@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Salud - Ficha Médica Interactiva</title>
+    <link rel="stylesheet" href="estiloficha.css"> 
+</head>
+<body>
+
+    <header>
+        <img src="vetsalud.jpg"> 
+        <h1>Ficha Médica Interactiva - Vet Salud</h1>
+        <div class="header-botones">
+            <a href="index.html" class="btn-inicio">← Volver al Inicio</a>
+            <button id="btn-modo-oscuro" class="btn-inicio">🌙 Modo Oscuro</button>
+        </div>
+    </header>
+<div class="header-botones">
+           
+            
+        </div>
+    <main>
+        <section class="formulario-ficha">
+            <h2>Calculadora de Edad Humana</h2>
+            <p class="subtitulo-ficha">Descubrí cuántos años tendría tu mascota si fuera un ser humano.</p>
+            
+            <form id="form-calculadora">
+                <div class="grupo-campo">
+                    <label for="tipo-mascota">¿Qué mascota tenés?:</label>
+                    <select id="tipo-mascota" class="input-ficha" required>
+                        <option value="" disabled selected>Seleccioná una opción</option>
+                        <option value="perro-pequeno">Perro Pequeño (menos de 10kg)</option>
+                        <option value="perro-mediano">Perro Mediano (11kg a 25kg)</option>
+                        <option value="perro-grande">Perro Grande (más de 25kg)</option>
+                        <option value="gato">Gato</option>
+                    </select>
+                </div>
+
+                <div class="grupo-campo">
+                    <label for="edad-mascota">Edad actual de la mascota (en años):</label>
+                    <input type="number" id="edad-mascota" class="input-ficha" min="1" max="25" placeholder="Ej: 3" required>
+                </div>
+
+                <button type="submit" class="btn-ficha">Calcular Edad</button>
+            </form>
+
+            <div id="resultado-calculadora"></div>
+        </section>
+
+        <section class="formulario-ficha">
+            <h2>Calendario de Vacunación Obligatoria</h2>
+            <p class="subtitulo-ficha">Seleccioná la etapa de tu mascota para saber qué vacunas necesita.</p>
+            
+            <div class="contenedor-botones-etapas">
+                <button type="button" class="btn-ficha btn-etapa-izq" onclick="mostrarVacunas('cachorro')">Cachorros (Menos de 1 año)</button>
+                <button type="button" class="btn-ficha btn-etapa-der" onclick="mostrarVacunas('adulto')">Adultos (Más de 1 año)</button>
+            </div>
+
+            <div id="info-vacunas"></div>
+        </section>
+    </main>
+
+    <script src="script-ficha.js"></script>
+    
+    <footer class="footer-final">
+        <p>&copy; 2026 <strong> VETERINARIA VET SALUD</strong> - TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+</body>
+</html>

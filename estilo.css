@@ -1,0 +1,415 @@
+/* Paleta: Bosque, Arena y Tierra */
+:root {
+    --primario: #326B6B;      /* Verde Bosque profundo */
+    --secundario: #95d5b2;    /* Verde Menta pastel */
+    --fondo: #fffcf2;         /* Crema papel */
+    --acento: #649797;        /* Tierra/Madera (Cálido) */
+    --texto: #1b4332;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+}
+
+/* 1. HEADER: Ahora es un diseño "Clean" lateral */
+header {
+    background: var(--primario);
+    color: white;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 10px solid var(--acento);
+}
+
+header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    margin: 15px 0;
+    letter-spacing: 3px;
+}
+
+header img {
+    width: 400px;
+    height: 200px;
+    border-radius: 15%;
+    border: 5px solid var(--acento);
+}
+
+/* 2. MENÚ: Estilo Barra Flotante */
+nav ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 12px;
+    border-radius: 30px;
+}
+
+/* 3. SECCIONES: Alternamos colores de fondo para romper la rutina */
+section {
+    padding: 60px 20px;
+}
+
+/* SECCIÓN INICIO: Texto grande y centrado */
+#INICIO {
+    text-align: center;
+    background-color: var(--fondo);
+}
+
+#INICIO h2 { font-size: 2.5rem; color: var(--primario); }
+
+/* SECCIÓN SERVICIOS: Sin tarjetas, estilo Lista Elegante */
+#servicios {
+    background-color: var(--primario);
+    color: white;
+    clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%); /* Forma asimétrica */
+}
+
+#servicios h2 { color: var(--acento); margin-bottom: 30px; }
+
+.servicio-item {
+    border-left: 2px solid var(--acento);
+    padding-left: 20px;
+    margin-bottom: 40px;
+}
+
+/* SECCIÓN PET SHOP: Diseño de "Mosaico" */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(140px, 1fr)); /* Dos columnas reales en el celu */
+    gap: 15px;
+    padding: 10px;
+
+}
+.producto:hover{
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgb(0, 0, 0, 0.05);
+}
+
+.producto {
+    background: white;
+    padding: 10px;
+    border-radius: 12px; /* Estilo editorial, fotos cuadradas */
+    border-bottom: 4px solid var(--acento);
+    text-align: center;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px rgb(0, 0, 0, 0.05);
+    transition: transform 0.02s ease;
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.producto img {
+    width: 60%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    border: 1px solid rgb(0, 0, 0, 0.05);
+}
+.producto h3{
+    font-size: 0.8rem;
+    color: var(--primario);
+    margin-bottom: 4px;
+    font-weight: 700;
+
+}
+.producto p {
+    font-size: 0.7rem;
+    color: #666;
+    line-height: 1.3;
+}
+
+/* SECCIÓN CONTACTO: Estilo Bloque Sólido */
+#contacto {
+    background-color: var(--primario);
+    color: var(--fondo);
+}
+
+.telefonos p {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    
+}
+.telefonos a{
+    color: white;
+}
+.redes a  {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* 4. FOOTER: El que querías abajo de todo, pero con diseño */
+.footer-final {
+    background-color: #000;
+    color: var(--acento);
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Botón WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25d366;
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 12px; /* Cuadrado redondeado, no círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+
+
+
+/* ==========================================================================
+   CARRUSEL DE MARCAS INFINITO (A COLOR Y SIN BORDES)
+   ========================================================================== */
+
+/* ==========================================================================
+   CARRUSEL DE MARCAS: ¡SUPER AGRANDADO Y HORIZONTAL!
+   ========================================================================== */
+
+/* 1. Contenedor exterior invisible */
+.marcas-wrapper.header-marcas {
+    width: 100% !important;
+    max-width: 95% !important;          
+    overflow: hidden !important;        /* Recorta los logos sobrantes */
+    background: transparent !important; 
+    padding: 25px 0 !important;         /* Más espacio arriba y abajo */
+    margin-top: 30px !important;        
+    margin-bottom: 10px !important;      
+    box-shadow: none !important;        
+    border: none !important;            
+    display: block !important;
+}
+
+/* 2. La tira interna: Fuerza la fila horizontal pase lo que pase */
+.marcas-track {
+    display: flex !important; 
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;       /* PROHIBIDO que se vayan para abajo */
+    width: max-content !important;
+    gap: 80px !important;               /* Más espacio entre logos grandes */
+    align-items: center !important;     
+    animation: scrollMarcas 32s linear infinite !important; /* Más lento porque son grandes */
+}
+
+/* Pausar al pasar el mouse */
+.marcas-wrapper:hover .marcas-track {
+    animation-play-state: paused !important;
+}
+
+/* 3. Contenedor de cada logo: ¡Acá subimos el tamaño! */
+.header-marcas .marca-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 200px !important;            /* Subió a 200px para albergar logos grandes */
+    height: 90px !important;            /* Subió a 90px */
+    background: transparent !important; 
+    border: none !important;
+    flex-shrink: 0 !important;          /* Evita que se aplasten */
+}
+
+/* 4. Estilo de las imágenes: ¡LOGOS BIEN GRANDES! */
+.marca-logo img {
+    width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: 85px !important;        /* ¡Subió a 85px! Ahora se van a re notar */
+    object-fit: contain !important;     
+    border: none !important;            
+    outline: none !important;
+    filter: none !important;            
+    opacity: 1 !important;            
+    transition: transform 0.2s ease !important;
+}
+
+/* Al pasar el mouse hace un mini zoom */
+.marca-logo img:hover {
+    transform: scale(1.05) !important;   
+}
+
+/* 5. La animación de desplazamiento horizontal */
+@keyframes scrollMarcas {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 40px)); 
+    }
+
+}
+
+
+/* ==========================================================================
+   ALINEACIÓN DEL BOTÓN DE MODO OSCURO EN EL HEADER (INDEX)
+   ========================================================================== */
+
+/* Contenedor flexible para tirar el botón al extremo derecho */
+.header-botones {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    right: 0;
+}
+
+/* Forzamos el estado por defecto: Transparente con LETRA BLANCA y BORDE BLANCO */
+#btn-modo-oscuro.btn-inicio {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 20px;
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover sobre el botón en el modo claro */
+#btn-modo-oscuro.btn-inicio:hover {
+    background-color: #ffffff !important;
+    color: #326B6B !important; /* Invierte al color verde de tu header */
+}
+/* ==========================================================================
+   VARIACIONES DE COLOR PARA MODO OSCURO (INDEX)
+   ========================================================================== */
+
+/* Fondo oscuro general de la página */
+body.dark-mode {
+    background-color: #1a2424 !important;
+    color: #f4f7f6 !important;
+}
+
+/* Ajuste para los títulos de secciones en fondo oscuro */
+body.dark-mode main section h2 {
+    color: #ffffff !important;
+}
+
+/* Cambia los bloques blancos o claros a gris oscuro nocturno */
+body.dark-mode #INICIO,
+body.dark-mode .servicio-item,
+body.dark-mode .producto,
+body.dark-mode #contacto {
+    background-color: #243333 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+    border-color: #649797 !important; /* Color secundario para detalles */
+}
+
+/* Cambia los enlaces o textos importantes dentro de contacto */
+body.dark-mode #contacto a,
+body.dark-mode #contacto strong {
+    color: #649797 !important;
+}
+
+/* ==========================================================================
+   VARIACIONES DE COLOR PARA MODO OSCURO (INDEX) - ¡CORREGIDO!
+   ========================================================================== */
+
+/* 1. Fondo general de la página */
+body.dark-mode {
+    background-color: #111a1a !important; /* Un tono más profundo */
+    color: #f4f7f6 !important;
+}
+
+/* 2. Forzar a TODAS las secciones y al header a oscurecer sus fondos */
+body.dark-mode header,
+body.dark-mode main section,
+body.dark-mode #servicios,
+body.dark-mode #petshop,
+body.dark-mode #contacto {
+    background-color: #1a2424 !important; /* Gris oscuro médico */
+    transition: background-color 0.3s ease;
+}
+
+/* 3. Estilo para las tarjetas interiores (Bienvenidos, Servicios, Productos) */
+body.dark-mode #INICIO,
+body.dark-mode .servicio-item,
+body.dark-mode .producto {
+    background-color: #243333 !important; /* Un gris un toque más claro para hacer contraste */
+    color: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid #3d5252 !important;
+}
+
+/* 4. Corrección de textos, títulos y enlaces */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode main section h2,
+body.dark-mode .servicio-item h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode p, 
+body.dark-mode li {
+    color: #e0e6e6 !important;
+}
+
+body.dark-mode #contacto a,
+body.dark-mode #contacto strong {
+    color: #8cbaba !important; /* Verde claro pastel para resaltar */
+}
+
+/* 5. Ajuste para los botones de la barra de navegación del Header */
+body.dark-mode nav ul li a {
+    color: #ffffff !important;
+    border-color: #3d5252 !important;
+    background-color: #243333 !important;
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: #ffffff !important;
+    color: #1a2424 !important;
+}
+
+/* 6. COMPORTAMIENTO DEL BOTÓN INVERTIDO EN MODO OSCURO */
+body.dark-mode #btn-modo-oscuro.btn-inicio {
+    background-color: #ffffff !important;
+    color: #1a2424 !important; /* Letra oscura sobre fondo blanco */
+    border-color: #ffffff !important;
+}
+
+body.dark-mode #btn-modo-oscuro.btn-inicio:hover {
+    background-color: transparent !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}

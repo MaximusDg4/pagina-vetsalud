@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Salud - Solicitar Turno</title>
+    <link rel="stylesheet" href="estilo2.css"> 
+</head>
+<body>
+
+    <header>
+        <img src="vetsalud.jpg"> 
+        <h1>Solicitud de Turnos - Vet Salud</h1>
+        <div class="header-botones">
+            <a href="index.html" class="btn-inicio">← Volver al Inicio</a>
+            <button id="btn-modo-oscuro" class="btn-inicio">🌙 Modo Oscuro</button>
+    </header>
+    </header>
+
+    <main>
+       
+        </div>
+        <form id="formulario-turnos">
+            <div>
+                <label for="nombre-mascota">Nombre de la mascota:</label>
+                <input type="text" id="nombre-mascota" placeholder="Ej: Firulais" required>
+            </div>
+
+            <!-- ¡NUEVO CAMPO! Agregamos Tipo o Raza -->
+            <div>
+                <label for="raza-mascota">Tipo o Raza de la mascota:</label>
+                <input type="text" id="raza-mascota" placeholder="Ej: Perro / Ovejero Alemán" required>
+            </div>
+
+            <div>
+                <label for="contacto-usuario">Número de contacto o Correo:</label>
+                <input type="text" id="contacto-usuario" placeholder="Ej: 11223344 o mail@ejemplo.com" required>
+            </div>
+
+            <button type="submit" id="btn-enviar-solicitud">Enviar Solicitud</button>
+        </form>
+
+        <div id="mensaje-alerta"></div>
+    </main>
+
+    
+    <script src="script-turnos.js"></script>
+    
+    <footer class="footer-final">
+           <p>&copy; 2026 <strong> VETERINARIA VET SALUD</strong> - TODOS LOS DERECHOS RESERVADOS</p>
+       </footer>
+</body>
+</html>
