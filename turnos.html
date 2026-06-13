@@ -14,12 +14,11 @@
         <div class="header-botones">
             <a href="index.html" class="btn-inicio">← Volver al Inicio</a>
             <button id="btn-modo-oscuro" class="btn-inicio">🌙 Modo Oscuro</button>
-    
-    </header>
+        </div> <!-- ¡CORREGIDO: Se cerró el div! -->
+    </header> <!-- ¡CORREGIDO: Se cerró el header! -->
 
     <main>
-       
-        </div>
+        <!-- ¡CORREGIDO: Se borró el div que estaba colgado acá! -->
         <form id="formulario-turnos">
             <div>
                 <label for="nombre-mascota">Nombre de la mascota:</label>
@@ -43,11 +42,11 @@
         <div id="mensaje-alerta"></div>
     </main>
 
-    
-    <script src="script-turnos.js"></script>
-    
     <footer class="footer-final">
-           <p>&copy; 2026 <strong> VETERINARIA VET SALUD</strong> - TODOS LOS DERECHOS RESERVADOS</p>
-       </footer>
+        <p>&copy; 2026 <strong> VETERINARIA VET SALUD</strong> - TODOS LOS DERECHOS RESERVADOS</p>
+    </footer>
+
+    <!-- ¡CORREGIDO: El script ahora está al final de todo como corresponde! -->
+    <script src="script-turnos.js"></script>
 </body>
 </html>
