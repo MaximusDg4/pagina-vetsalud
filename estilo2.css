@@ -290,41 +290,93 @@ body.dark-mode #info-vacunas:not(.mensaje-exito) {
     }
 }
 /* ==========================================================================
+   ESTILOS PARA MODO OSCURO (TURNOS CORREGIDO)
+   ========================================================================== */
+
+/* Colores de fondo e inversión general */
+body.dark-mode {
+    background-color: #111a1a !important; /* Fondo nocturno profundo */
+    color: #f4f7f6 !important;
+}
+
+/* La tarjeta del formulario pasa a gris oscuro médico */
+body.dark-mode #formulario-turnos {
+    background-color: #1a2424 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+    border-top-color: var(--secundario) !important; /* Cambia al verde más claro del logo */
+}
+
+/* Forzar que las etiquetas se pinten de blanco */
+body.dark-mode #formulario-turnos label {
+    color: #ffffff !important;
+}
+
+/* Inputs en modo oscuro para el formulario de turnos */
+body.dark-mode #formulario-turnos input[type="text"],
+body.dark-mode #formulario-turnos select,
+body.dark-mode #formulario-turnos input[type="date"],
+body.dark-mode #formulario-turnos input[type="time"] {
+    background-color: #243333 !important;
+    border-color: #3d5252 !important;
+    color: #ffffff !important;
+}
+
+/* Efecto focus en inputs durante el modo oscuro */
+body.dark-mode #formulario-turnos input[type="text"]:focus {
+    border-color: var(--secundario) !important;
+}
+
+/* Posicionamiento de los botones en el Header */
+.header-botones {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .header-botones {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 0;
+    }
+}
+
+/* ==========================================================================
    REGLAS PARA EL BOTÓN DE MODO OSCURO (ESTILO PÍLDORA)
    ========================================================================== */
 
-/* 1. MODO CLARO POR DEFECTO (Botón transparente, LETRA BLANCA y BORDE BLANCO) */
+/* MODO CLARO POR DEFECTO (Botón transparente, LETRA BLANCA y BORDE BLANCO) */
 #btn-modo-oscuro {
     display: inline-block;
     background-color: transparent;
-    color: #ffffff !important; /* Forzamos letra blanca en modo claro */
-    border: 2px solid #ffffff !important; /* ¡ESTA LÍNEA SE ENCARGA DEL BORDE BLANCO! */
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
     text-decoration: none;
     padding: 8px 18px;
     font-size: 0.9rem;
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
-    border-radius: 20px; /* Forma de píldora */
+    border-radius: 20px;
     transition: all 0.3s ease;
     cursor: pointer;
     box-sizing: border-box;
 }
 
-/* Efecto hover en modo claro */
 #btn-modo-oscuro:hover {
     background-color: #ffffff;
-    color: #326B6B !important; /* Letra verde al pasar el mouse */
+    color: #326B6B !important;
     border-color: #ffffff !important;
 }
 
-/* 2. MODO OSCURO ACTIVADO (Botón fondo blanco, LETRA OSCURA) */
+/* MODO OSCURO ACTIVADO (Botón fondo blanco, LETRA OSCURA) */
 body.dark-mode #btn-modo-oscuro {
     background-color: #ffffff !important;
-    color: #1a2424 !important; /* Letra oscura en modo oscuro */
+    color: #1a2424 !important;
     border-color: #ffffff !important;
 }
 
-/* Efecto hover en modo oscuro */
 body.dark-mode #btn-modo-oscuro:hover {
     background-color: transparent !important;
     color: #ffffff !important;
