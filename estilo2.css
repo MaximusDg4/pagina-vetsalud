@@ -1,227 +1,143 @@
-/* ==========================================================================/* ==========================================================================
-   ESTILOS PARA LA PÁGINA DE TURNOS (VET SALUD - ADAPTADO AL LOGO)
+/* ==========================================================================
+   ESTILOS PARA LA PÁGINA DE TURNOS (VET SALUD - CON GOOGLE FORMS)
    ========================================================================== */
 
 /* Paleta basada exactamente en el logo de Vet Salud */
 :root {
-    --primario: #326B6B;      /* Verde Azulado Oscuro (Lado derecho del logo) */
-    --secundario: #649797;    /* Verde Azulado Claro (Lado izquierdo del logo) */
+    --primario: #326B6B;      /* Verde Azulado Oscuro */
+    --secundario: #649797;    /* Verde Azulado Claro */
     --fondo: #fffcf2;         /* Crema papel */
     --texto: #1c3d3d;         /* Tono oscuro para lectura */
 }
 
-/* Aplicamos limpieza base y la tipografía Montserrat del index */
+/* Configuramos el body como un contenedor Flex vertical para pegar el footer abajo */
 body {
     background-color: var(--fondo);
     color: var(--texto);
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-}
-
-/* Contenedor principal para centrar el formulario en la pantalla */
-main {
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 20px;
-}
-
-/* Tarjeta del Formulario */
-#formulario-turnos {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border-top: 6px solid var(--primario); /* Borde con el color principal del logo */
-}
-
-/* Grupos de formularios (Inputs y Labels) */
-#formulario-turnos div {
-    margin-bottom: 25px;
     display: flex;
-    flex-direction: column; /* Hace que el label quede arriba del input */
+    flex-direction: column;
+    min-height: 100vh; /* Obliga al cuerpo a medir el alto completo de la pantalla */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Etiquetas (Labels) */
-#formulario-turnos label {
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--texto);
-    font-size: 0.9rem;
-    text-transform: uppercase; /* Estilo editorial un poco más pulido */
-    letter-spacing: 0.5px;
-}
-
-/* Campos de texto (Inputs) */
-#formulario-turnos input[type="text"] {
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--texto);
-    transition: all 0.3s ease;
-    outline: none;
-}
-
-/* Efecto cuando el usuario hace clic para escribir en el input */
-#formulario-turnos input[type="text"]:focus {
-    border-color: var(--secundario);
-    box-shadow: 0 0 8px rgba(100, 151, 151, 0.2);
-}
-
-/* Botón de Enviar */
-#btn-enviar-solicitud {
+/* El contenedor principal va a empujar al footer hacia el fondo */
+main {
     width: 100%;
-    background-color: var(--primario); /* Color oscuro del logo */
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 1rem;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 8px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+    flex: 1; /* Truco clave para estirar el contenido libre */
 }
-
-/* Efecto Hover del botón */
-#btn-enviar-solicitud:hover {
-    background-color: #244f4f; /* Un tono un toque más oscuro para el contraste al pasar el mouse */
-}
-
-/* Efecto cuando se clickea el botón */
-#btn-enviar-solicitud:active {
-    transform: scale(0.98);
-}
-
-/* Mensaje de Alerta (Éxito o Error) que maneja JavaScript */
-#mensaje-alerta {
-    margin-top: 20px;
-    padding: 14px;
-    border-radius: 8px;
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    transition: all 0.3s ease;
-}
-
-/* Clases dinámicas que agregará tu JavaScript según el resultado */
-.mensaje-exito {
-    color: #1e4620;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-}
-
-.mensaje-error {
-    color: #611a1f;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-}
-
 
 /* ==========================================================================
-   ESTILO PARA EL BOTÓN DE INICIO
+   HEADER Y BOTONES SUPERIORES (CORREGIDO)
    ========================================================================== */
-
 header {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    background-color: #326B6B; /* Sigue la paleta verde azulado */
+    padding: 30px 20px;
+    background-color: var(--primario);
     color: white;
     text-align: center;
     position: relative;
 }
 
-.header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+header img {
+    max-height: 90px; /* Ajustado para que el logo luzca nítido */
     margin-bottom: 15px;
 }
 
-header img {
-    max-height: 80px; /* Ajustá la altura según tu logo */
-    margin-bottom: 10px;
-}
-
 header h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 0;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
-/* El botón de volver */
-.btn-inicio {
+/* Contenedor de botones flotantes */
+.header-botones {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+/* Alineación limpia arriba a la derecha en pantallas de Computadora */
+@media (min-width: 768px) {
+    .header-botones {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 0;
+    }
+}
+
+/* Estilo unificado para botones (Volver e Inicio en formato píldora) */
+.btn-inicio, #btn-modo-oscuro {
     display: inline-block;
     background-color: transparent;
-    color: white;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
     text-decoration: none;
     padding: 8px 18px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    border: 2px solid white;
-    border-radius: 20px; /* Estilo píldora como tus menús anteriores */
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
     transition: all 0.3s ease;
     cursor: pointer;
-    margin-top: 5px;
+    box-sizing: border-box;
+    white-space: nowrap;
 }
 
-/* Efecto al pasar el mouse por encima del botón */
-.btn-inicio:hover {
-    background-color: white;
-    color: #326B6B; /* Invierte los colores */
-    transform: translateY(-2px); /* Un mini salto flotante hacia arriba */
+.btn-inicio:hover, #btn-modo-oscuro:hover {
+    background-color: #ffffff;
+    color: var(--primario) !important;
+    border-color: #ffffff !important;
+    transform: translateY(-2px); /* Mini salto flotante */
 }
 
-/* Efecto cuando lo presionás */
-.btn-inicio:active {
+.btn-inicio:active, #btn-modo-oscuro:active {
     transform: translateY(0);
 }
 
-
-/* 1. Configuramos el body como un contenedor Flex vertical que ocupe el 100% de la pantalla */
-body {
-    background-color: var(--fondo);
-    color: var(--texto);
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    
-    /* TRUCO CLAVE PARA PEGAR EL FOOTER ABAJO */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Obliga al cuerpo a medir el alto completo de la pantalla del usuario */
+/* ==========================================================================
+   CONTENEDOR RESPONSIVO DE GOOGLE FORMS (ANCHO CORRECTO)
+   ========================================================================== */
+.contenedor-formulario-google {
+    width: 100%;
+    max-width: 760px; /* Ancho perfecto para que respire horizontalmente */
+    margin: 40px auto; /* Lo centra en la pantalla de la compu */
+    padding: 0 15px;
+    box-sizing: border-box;
 }
 
-/* 2. El contenedor principal va a empujar al footer hacia el fondo */
-main {
-    max-width: 500px;
-    margin: 40px auto;
-    padding: 20px;
-    
-    /* TRUCO CLAVE: Le dice a esta sección que se estire para ocupar todo el espacio libre */
-    flex: 1; 
+/* Forzamos al iframe a ocupar todo el espacio sin deformarse ni meter scrolls dobles */
+.contenedor-formulario-google iframe {
+    width: 100% !important;
+    height: 1420px !important; /* Altura ideal calculada para tus preguntas actuales */
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: block;
 }
 
-/* 3. El footer ahora se queda abajo de forma natural */
+/* ==========================================================================
+   FOOTER FINAL
+   ========================================================================== */
 .footer-final {
     background-color: #1a2424; 
     color: #649797;            
     text-align: center;
-    padding: 40px 20px;        
+    padding: 30px 20px;        
     font-size: 0.8rem;
     text-transform: uppercase; 
     letter-spacing: 1px;       
     width: 100%;
-    
-    /* Cambiamos el margin-top para que no choque si la pantalla es muy chica */
+    box-sizing: border-box;
     margin-top: 40px; 
 }
 
@@ -229,148 +145,16 @@ main {
     color: #ffffff;            
     font-weight: 700;
 }
+
 /* ==========================================================================
-   ESTILOS PARA MODO OSCURO
+   ESTILOS PARA MODO OSCURO (OPTIMIZADO)
    ========================================================================== */
-
-/* Colores que se van a invertir */
-body.dark-mode {
-    background-color: #1a2424; /* Fondo oscuro (parecido a tu footer) */
-    color: #f4f7f6;
-}
-
-/* Las tarjetas pasan a ser gris oscuro */
-body.dark-mode .formulario-ficha {
-    background-color: #243333;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border-top-color: var(--secundario); /* Cambia el borde al verde más claro para que resalte */
-}
-
-body.dark-mode .formulario-ficha h2 {
-    color: #ffffff;
-}
-
-body.dark-mode .subtitulo-ficha {
-    color: #8cbaba;
-}
-
-body.dark-mode .grupo-campo label {
-    color: #ffffff;
-}
-
-/* Inputs en modo oscuro */
-body.dark-mode .input-ficha {
-    background-color: #1c2929;
-    border-color: #3d5252;
-    color: #ffffff;
-}
-
-body.dark-mode .input-ficha:focus {
-    border-color: var(--secundario);
-}
-
-/* Modificamos el cuadro de vacunas por defecto si no tiene la clase de éxito aún */
-body.dark-mode #info-vacunas:not(.mensaje-exito) {
-    color: #a5c7c7;
-}
-.header-botones {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-/* En pantallas de compu, los tira arriba a la derecha */
-@media (min-width: 768px) {
-    .header-botones {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-top: 0;
-    }
-}
-/* ==========================================================================
-   ESTILOS PARA MODO OSCURO (TURNOS CORREGIDO)
-   ========================================================================== */
-
-/* Colores de fondo e inversión general */
 body.dark-mode {
     background-color: #111a1a !important; /* Fondo nocturno profundo */
     color: #f4f7f6 !important;
 }
 
-/* La tarjeta del formulario pasa a gris oscuro médico */
-body.dark-mode #formulario-turnos {
-    background-color: #1a2424 !important;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
-    border-top-color: var(--secundario) !important; /* Cambia al verde más claro del logo */
-}
-
-/* Forzar que las etiquetas se pinten de blanco */
-body.dark-mode #formulario-turnos label {
-    color: #ffffff !important;
-}
-
-/* Inputs en modo oscuro para el formulario de turnos */
-body.dark-mode #formulario-turnos input[type="text"],
-body.dark-mode #formulario-turnos select,
-body.dark-mode #formulario-turnos input[type="date"],
-body.dark-mode #formulario-turnos input[type="time"] {
-    background-color: #243333 !important;
-    border-color: #3d5252 !important;
-    color: #ffffff !important;
-}
-
-/* Efecto focus en inputs durante el modo oscuro */
-body.dark-mode #formulario-turnos input[type="text"]:focus {
-    border-color: var(--secundario) !important;
-}
-
-/* Posicionamiento de los botones en el Header */
-.header-botones {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
-}
-
-@media (min-width: 768px) {
-    .header-botones {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        margin-top: 0;
-    }
-}
-
-/* ==========================================================================
-   REGLAS PARA EL BOTÓN DE MODO OSCURO (ESTILO PÍLDORA)
-   ========================================================================== */
-
-/* MODO CLARO POR DEFECTO (Botón transparente, LETRA BLANCA y BORDE BLANCO) */
-#btn-modo-oscuro {
-    display: inline-block;
-    background-color: transparent;
-    color: #ffffff !important;
-    border: 2px solid #ffffff !important;
-    text-decoration: none;
-    padding: 8px 18px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    box-sizing: border-box;
-}
-
-#btn-modo-oscuro:hover {
-    background-color: #ffffff;
-    color: #326B6B !important;
-    border-color: #ffffff !important;
-}
-
-/* MODO OSCURO ACTIVADO (Botón fondo blanco, LETRA OSCURA) */
+/* Botón de Modo Oscuro Activado */
 body.dark-mode #btn-modo-oscuro {
     background-color: #ffffff !important;
     color: #1a2424 !important;
