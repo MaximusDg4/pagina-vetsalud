@@ -186,8 +186,10 @@ header {
 }
 
 header img {
-    max-height: 80px;
-    margin-bottom: 10px;
+     width: 400px;
+    height: 200px;
+    border-radius: 15%;
+    border: 5px solid var(--acento);
 }
 
 header h1 {
