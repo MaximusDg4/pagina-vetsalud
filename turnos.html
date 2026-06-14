@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vet Salud - Solicitar Turno</title>
-    <link rel="stylesheet" href="estilo2.css"> 
+    <link rel="stylesheet" href="estilo.css"> 
 </head>
 <body>
 
@@ -17,30 +17,17 @@
         </div> <!-- ¡CORREGIDO: Se cerró el div! -->
     </header> <!-- ¡CORREGIDO: Se cerró el header! -->
 
-    <main>
-        <!-- ¡CORREGIDO: Se borró el div que estaba colgado acá! -->
-        <form id="formulario-turnos">
-            <div>
-                <label for="nombre-mascota">Nombre de la mascota:</label>
-                <input type="text" id="nombre-mascota" placeholder="Ej: Firulais" required>
-            </div>
-
-            <!-- ¡NUEVO CAMPO! Agregamos Tipo o Raza -->
-            <div>
-                <label for="raza-mascota">Tipo o Raza de la mascota:</label>
-                <input type="text" id="raza-mascota" placeholder="Ej: Perro / Ovejero Alemán" required>
-            </div>
-
-            <div>
-                <label for="contacto-usuario">Número de contacto o Correo:</label>
-                <input type="text" id="contacto-usuario" placeholder="Ej: 11223344 o mail@ejemplo.com" required>
-            </div>
-
-            <button type="submit" id="btn-enviar-solicitud">Enviar Solicitud</button>
-        </form>
-
-        <div id="mensaje-alerta"></div>
+      <main style="padding: 20px;">
+        <div class="contenedor-formulario-google">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScfXhXIiSOEkiKvAJYo00GCQVpKUSJdxJoHo-uTQ0IDK-28Ug/viewform?embedded=true" width="100%" 
+                    height="1400" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">Cargando…
+            </iframe>
+        </div>
     </main>
+
 
     <footer class="footer-final">
         <p>&copy; 2026 <strong> VETERINARIA VET SALUD</strong> - TODOS LOS DERECHOS RESERVADOS</p>
