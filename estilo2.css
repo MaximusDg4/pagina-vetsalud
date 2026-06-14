@@ -46,8 +46,10 @@ header {
 }
 
 header img {
-    max-height: 90px; /* Ajustado para que el logo luzca nítido */
-    margin-bottom: 15px;
+     width: 400px;
+    height: 200px;
+    border-radius: 15%;
+    border: 5px solid var(--acento);
 }
 
 header h1 {
